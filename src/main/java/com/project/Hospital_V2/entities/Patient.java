@@ -1,5 +1,4 @@
 package com.project.Hospital_V2.entities;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,7 +14,11 @@ public class Patient {
     private String firstName;
     @NotNull
     @Size(min = 3, max = 50)
-    String lastName;
+    private String lastName;
+
+    @NotNull
+    @Size(min = 1, max = 100)
+    int age;
 
     public Patient() {
     }
@@ -58,9 +61,5 @@ public class Patient {
     public void setAge(int age) {
         this.age = age;
     }
-
-    @NotNull
-    @Size(min = 1, max = 100)
-    int age;
 
 }
