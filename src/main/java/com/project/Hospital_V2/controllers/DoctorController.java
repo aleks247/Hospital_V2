@@ -11,4 +11,8 @@ public class DoctorController {
     public String menu(){
         return "/menu";
     }
+    @GetMapping("/main")
+    public String main(){
+        return "/Main";
+    }
 }
