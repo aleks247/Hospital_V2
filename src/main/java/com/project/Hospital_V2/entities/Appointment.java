@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.sql.Time;
 import java.util.Date;
 
-
+@Entity
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,12 @@ public class Appointment {
     @NotNull
     @Valid
     private Date date;
-    @NotNull
-    @Size(min = 3, max = 50)
+
+    @ManyToOne
+    @JoinColumn(name = "patientId")
     private Patient patient;
-    @NotNull
-    @Size(min = 3, max = 50)
+    @ManyToOne
+    @JoinColumn(name = "doctorId")
     private Doctor doctor;
     @Enumerated(EnumType.STRING)
     @NotNull

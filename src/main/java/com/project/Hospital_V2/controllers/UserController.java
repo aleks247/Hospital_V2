@@ -30,7 +30,7 @@ public class UserController {
         } else{
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
-            user.setRole("USER");
+            user.setRole("PATIENT");
             user.setEnabled(true);
             user.setPassword(encodedPassword);
             userRepository.save(user);
