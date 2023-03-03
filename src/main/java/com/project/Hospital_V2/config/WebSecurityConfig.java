@@ -1,4 +1,4 @@
-package com.project.Hospital_V2;
+package com.project.Hospital_V2.config;
 
 import com.project.Hospital_V2.services.CustomAuthenticationSuccessHandler;
 import com.project.Hospital_V2.services.UserDetailsServiceImpl;
