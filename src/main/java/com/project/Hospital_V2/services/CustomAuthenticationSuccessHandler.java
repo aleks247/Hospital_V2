@@ -17,10 +17,10 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority authority : authorities) {
             if (authority.getAuthority().equals("DOCTOR")) {
-                response.sendRedirect("/doctors/main");
+                response.sendRedirect("/doctor");
                 return;
             } else if (authority.getAuthority().equals("PATIENT")) {
-                response.sendRedirect("/homePageCook");
+                response.sendRedirect("/patient");
                 return;
             }
         }
