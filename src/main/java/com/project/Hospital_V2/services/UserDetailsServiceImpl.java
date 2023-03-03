@@ -1,6 +1,6 @@
 package com.project.Hospital_V2.services;
 
-import com.project.Hospital_V2.MyUserDetails;
+import com.project.Hospital_V2.config.MyUserDetails;
 import com.project.Hospital_V2.entities.User;
 import com.project.Hospital_V2.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
