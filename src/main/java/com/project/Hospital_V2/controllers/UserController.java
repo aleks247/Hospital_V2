@@ -2,6 +2,8 @@ package com.project.Hospital_V2.controllers;
 
 import com.project.Hospital_V2.entities.User;
 import com.project.Hospital_V2.repositories.UserRepository;
+import com.project.Hospital_V2.services.DoctorService;
+import com.project.Hospital_V2.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,11 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    DoctorService doctorService;
+
+    @Autowired
+    PatientService patientService;
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
@@ -34,6 +41,8 @@ public class UserController {
             user.setEnabled(true);
             user.setPassword(encodedPassword);
             userRepository.save(user);
+            doctorService.insertDoctors();
+            patientService.insertPatients();
             return new ModelAndView("redirect:/menu");
         }
     }
