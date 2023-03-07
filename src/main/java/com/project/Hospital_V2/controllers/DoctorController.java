@@ -7,12 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/doctors")
 public class DoctorController {
-    @GetMapping
-    public String menu(){
-        return "/menu";
-    }
-    @GetMapping("/main")
+    @GetMapping("/menu")
     public String main(){
-        return "/Main";
+        return "doctors/menu";
     }
 }

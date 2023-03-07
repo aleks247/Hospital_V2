@@ -1,0 +1,30 @@
+.navbarCustom {
+    overflow: hidden;
+    background-color: #28b2d4;
+    border-radius: 5px;
+    background: -webkit-linear-gradient(top, #01bfa5, #24a5ef);
+}
+  
+  .navbarCustom a {
+    float: left;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background: -webkit-linear-gradient(top, #01bfa5, #24a5ef);
+  }
+
+  .navbarCustom a:hover, .dropdownCustom:hover .dropbtnCustom {
+    background: -webkit-linear-gradient(top, #02b49d, #1987c7);
+    color: white;
+  }
+
+  #Title{
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #logout{
+    float: right;
+  }

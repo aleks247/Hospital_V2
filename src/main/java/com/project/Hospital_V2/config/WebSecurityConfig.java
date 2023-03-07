@@ -49,12 +49,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .mvcMatchers("/resorts/*", "/resorts")
-                .hasAnyAuthority("ADMIN")
+                .mvcMatchers("/doctors/*", "/doctors")
+                .hasAnyAuthority("DOCTOR")
                 .mvcMatchers("/hotels/*", "/hotels")
                 .hasAnyAuthority("USER")
-                .mvcMatchers("/doctors")
-                .hasAnyAuthority("Doctor")
                 .and()
                 .formLogin().loginPage("/login").permitAll()
                 .successHandler(successHandler())
