@@ -74,38 +74,41 @@ html {
   z-index: 0;
 }
 
-.OnlineService{
-  text-align: left+1px;
+.grid-container{
+  display: grid;
+  row-gap: 70px;
+  column-gap: 25px;
+  grid-template-columns: auto auto;
+  padding: 10px;
 }
+/*
+float: left;
+border-style: solid;
+border-left-width: 6px;
+border-right-width: 6px;
+border-color: #28b2d4;
+border-radius: 20px;
+width: 33%; */
 
-.guide{
-  padding-right:10%;
-  text-align: left+1px
-}
-
-.box2{  
-  float: right;
-  border-style: solid;
+.grid-item{
+  padding: 20px;
+  margin-left: 25%;
+  width: 50%;
+  text-align: left;
+  border-style: solid transparent;
   border-left-width: 6px;
   border-right-width: 6px;
-  border-color: #28b2d4;
+  background: linear-gradient(45deg, #01bfa5, #24a5ef) border-box;
+  color: white;
   border-radius: 20px;
-  padding-left: 50px;
-  width: 33%;
-}
-
-.box {
-  float: left;
-  border-style: solid;
-  border-left-width: 6px;
-  border-right-width: 6px;
-  border-color: #28b2d4;
-  border-radius: 20px;
-  width: 33%;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+#colors{
+  color: red;
 }
 
 .navbarCustom {

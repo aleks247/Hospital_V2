@@ -7,11 +7,11 @@
     <link rel="icon" type="image/x-icon" href="images/hospitalIcon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style.css">
-    <title>Doctor menu</title>
+    <title>Patient menu</title>
 </head>
 <body>
     <div class="navbarCustom">
-        <a class="active" id="Title"><b>Welcome back, Doctor [[${#request.userPrincipal.principal.username}]]</b></a>
+        <a class="active" id="Title"><b>Welcome back, Patient [[${#request.userPrincipal.principal.username}]]</b></a>
         <a id="links" href="#about">About</a>
         <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
         </div>
