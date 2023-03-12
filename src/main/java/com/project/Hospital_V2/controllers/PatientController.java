@@ -7,6 +7,7 @@ import com.project.Hospital_V2.enums.KindOfReview;
 import com.project.Hospital_V2.repositories.AppointmentRepository;
 import com.project.Hospital_V2.repositories.DoctorRepository;
 import com.project.Hospital_V2.repositories.PatientRepository;
+import com.project.Hospital_V2.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,6 +31,9 @@ public class PatientController {
     AppointmentRepository appointmentRepository;
     @Autowired
     DoctorRepository doctorRepository;
+    @Autowired
+    private PatientService patientService;
+
     @GetMapping("/menu")
     public String menu(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -58,16 +62,7 @@ public class PatientController {
 
     @PostMapping("/submit")
     public ModelAndView appointmentSubmit(@ModelAttribute("appointment") @Valid Appointment appointment, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
-            return  new ModelAndView("redirect:/patients/create");
-        } else {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            String name = auth.getName();
-            Patient patient = patientRepository.findByUsername(name);
-            appointment.setPatient(patient);
-            appointmentRepository.save(appointment);
-            return new ModelAndView("redirect:/patients/menu");
-        }
+        return patientService.appointmentCreation(appointment, bindingResult);
     }
 
 
