@@ -11,6 +11,9 @@ public class Patient {
     @Column(name = "id", nullable = false)
     private Integer id;
     @NotNull
+    @Size(min=5, max=20)
+    private String username;
+    @NotNull
     @Size(min = 3, max = 50)
     private String firstName;
     @NotNull
@@ -39,6 +42,13 @@ public class Patient {
         this.id = id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
     public String getFirstName() {
         return firstName;
     }

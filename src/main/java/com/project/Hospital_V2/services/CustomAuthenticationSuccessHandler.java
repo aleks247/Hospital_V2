@@ -20,7 +20,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                 response.sendRedirect("/doctors/menu");
                 return;
             } else if (authority.getAuthority().equals("PATIENT")) {
-                response.sendRedirect("/patient");
+                response.sendRedirect("/patients/menu");
                 return;
             }
         }
