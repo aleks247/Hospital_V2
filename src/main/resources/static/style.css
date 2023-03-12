@@ -1,3 +1,20 @@
+.tableContainer{
+  width: 1200px;
+  margin: auto;
+}
+.tableContainer th {
+  color: white;
+  background: -webkit-linear-gradient(top, #01bfa5, #24a5ef);
+}
+
+#updateBtn{
+  float: left;
+}
+
+#deleteBtn{
+  margin-left: 20px;
+}
+
 .navbarCustom {
     overflow: hidden;
     background-color: #28b2d4;
@@ -21,6 +38,7 @@
   }
 
   #Title{
+    color: white;
     pointer-events: none;
     z-index: 0;
   }
