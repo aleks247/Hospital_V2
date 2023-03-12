@@ -12,8 +12,8 @@ public class PatientService {
     }
 
     public void insertPatients() {
-        String sql = "INSERT IGNORE  INTO patient (id, age, first_name, last_name) " +
-                "SELECT user_id, age, first_name, last_name FROM users WHERE role = ?";
+        String sql = "INSERT IGNORE  INTO patient (id, username, age, first_name, last_name) " +
+                "SELECT user_id, username, age, first_name, last_name FROM users WHERE role = ?";
         Object[] params = {"PATIENT"};
         int rowsAffected = jdbcTemplate.update(sql, params);
     }

@@ -4,5 +4,6 @@ public enum KindOfReview {
     INITIAL(),
     SECONDARY(),
     CONSULTATION(),
-    PROCEDURE()
+    PROCEDURE();
+    KindOfReview(){}
 }

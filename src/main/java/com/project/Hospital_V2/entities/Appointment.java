@@ -1,25 +1,23 @@
 package com.project.Hospital_V2.entities;
 
 import com.project.Hospital_V2.enums.KindOfReview;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Appointment {
+    public static final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
-    @NotNull
-    @Valid
-    private Time time;
-    @NotNull
-    @Valid
-    private Date date;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime dateTime;
 
     @ManyToOne
     @JoinColumn(name = "patientId")
@@ -31,10 +29,11 @@ public class Appointment {
     @NotNull
     private KindOfReview kindOfReview;
 
-    public Appointment(Integer id, Time time, Date date, Patient patient, Doctor doctor, KindOfReview kindOfReview) {
-        this.id = id;
-        this.time = time;
-        this.date = date;
+    public Appointment() {
+    }
+
+    public Appointment(LocalDateTime dateTime, Patient patient, Doctor doctor, KindOfReview kindOfReview) {
+        this.dateTime = dateTime;
         this.patient = patient;
         this.doctor = doctor;
         this.kindOfReview = kindOfReview;
@@ -48,20 +47,17 @@ public class Appointment {
         this.id = id;
     }
 
-    public Time getTime() {
-        return time;
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+    public String getDateTime2() {
+        String test = "Date: " + String.valueOf(dateTime);
+        String test2 = test.replace("T", " Time: ");
+        return test2;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     public Patient getPatient() {
