@@ -25,25 +25,7 @@ public class DoctorController {
     DoctorRepository doctorRepository;
 
     @GetMapping("/menu")
-    public String menu(Model model){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        Doctor doctor = doctorRepository.findByUsername(name);
-        Iterable<Appointment> appointmentIterable = appointmentRepository.findAll();
-        List<Appointment> appointments = new ArrayList<>();
-        for (Appointment appointment: appointmentIterable) {
-            if(appointment.getDoctor().equals(doctor)){
-                appointments.add(appointment);
-            }
-        }
-        model.addAttribute("appointments", appointments);
+    public String menu(Model model) {
         return "doctors/menu";
-    }
-
-    @GetMapping
-    public String getAllResorts(Model model) {
-        Iterable<Appointment> appointments = appointmentRepository.findAll();
-        model.addAttribute("appointments", appointments);
-        return "/doctors/menu";
     }
 }
