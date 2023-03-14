@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +7,57 @@
     <link rel="icon" type="image/x-icon" href="images/hospitalIcon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Doctor menu</title>
+    <script>
+        $(document).ready(function() {
+            $('th').each(function(col) {
+                $(this).click(function() {
+                    if ($(this).hasClass('asc')) {
+                        $('table').find('tbody > tr').sort(function(a, b) {
+                            return $('td:eq(' + col + ')', b).text().localeCompare($('td:eq(' + col + ')', a).text());
+                        }).appendTo('table');
+                        $(this).removeClass('asc').addClass('desc');
+                    } else {
+                        $('table').find('tbody > tr').sort(function(a, b) {
+                            return $('td:eq(' + col + ')', a).text().localeCompare($('td:eq(' + col + ')', b).text());
+                        }).appendTo('table');
+                        $(this).removeClass('desc').addClass('asc');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <div class="navbarCustom">
-        <a class="active" id="Title"><b>Welcome back, Doctor [[${#request.userPrincipal.principal.username}]]</b></a>
-        <a id="links" href="#about">About</a>
-        <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
-        </div>
-#TODO Направи table на който излизат appointment-ите по дефаулт ид на доктора, също така над него да има форма в която въвеждаш доктор ид
+<div class="navbarCustom">
+    <a class="active" id="Title"><b>Welcome back, Doctor [[${#request.userPrincipal.principal.username}]]</b></a>
+    <a id="links" href="#about">About</a>
+    <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
+</div>
+<div class="tableContainer">
+    <h1 align="center">Your appointments</h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col" class="asc">id</th>
+            <th scope="col" class="asc">Date&Time</th>
+            <th scope="col" class="asc">Patient ID</th>
+            <th scope="col" class="asc">Review type</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment : ${appointments}">
+            <td th:text="${appointment.id}"></td>
+            <td th:text="${appointment.getDateTime2()}"></td>
+            <td th:text="${appointment.patient.id}"></td>
+            <td th:text="${appointment.KindOfReview}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
 </body>
 </html>

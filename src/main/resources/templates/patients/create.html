@@ -55,7 +55,7 @@
 
         <div class="wrap-input100 validate-input" data-validate = "Enter doctor!">
           <select name="kindOfReview" id="kindOfReview">
-            <option value="hide">-- Please Select --</option>
+            <option value="hide" disabled selected hidden>Select review kind</option>
             <option th:each="KindOfReview : ${T(com.project.Hospital_V2.enums.KindOfReview).values()}"
                     th:value="${KindOfReview}"
                     th:text="${KindOfReview}">
@@ -70,7 +70,7 @@
         </div>
 
         <div class="text-center p-t-90">
-          <a class="txt1" href="/menu">
+          <a class="txt1" href="/patients/menu">
             ←Back
           </a>
         </div>

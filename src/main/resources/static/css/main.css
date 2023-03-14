@@ -1,7 +1,3 @@
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -555,3 +551,6 @@ iframe {
   -moz-text-fill-color: transparent;
 }
 
+#kindOfReview{
+    text-align: center;
+}
