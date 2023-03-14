@@ -15,6 +15,19 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @NotNull
+    @Size(min=5, max=20)
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @NotNull
     @Size(min=3, max = 50)
     private String firstName;
@@ -67,4 +80,3 @@ public class Doctor {
         this.speciality = speciality;
     }
 }
-
