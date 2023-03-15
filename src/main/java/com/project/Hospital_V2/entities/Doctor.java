@@ -15,12 +15,19 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+
+    @NotNull
+    @Size(min=5, max=20)
+    private String username;
+
     @NotNull
     @Size(min=3, max = 50)
     private String firstName;
+
     @NotNull
     @Size(min=3, max = 50)
     String lastName;
+
     @Enumerated(EnumType.STRING)
     @Null
     private Specialties speciality;
@@ -41,6 +48,15 @@ public class Doctor {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
