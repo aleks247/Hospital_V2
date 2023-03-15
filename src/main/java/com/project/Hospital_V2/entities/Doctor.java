@@ -1,8 +1,6 @@
 package com.project.Hospital_V2.entities;
 
 import com.project.Hospital_V2.enums.Specialties;
-import net.bytebuddy.implementation.bind.annotation.Default;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,7 +24,7 @@ public class Doctor {
 
     @NotNull
     @Size(min=3, max = 50)
-    String lastName;
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     @Null

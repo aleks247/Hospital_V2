@@ -34,7 +34,7 @@
 <body>
 <div class="navbarCustom">
     <a class="active" id="Title"><b>Welcome back, Doctor [[${#request.userPrincipal.principal.username}]]</b></a>
-    <a id="links" href="/doctors/searchDoctor">Search doctors</a>
+    <a id="links" href="/doctors/searchDoctor" style="text-decoration:none;">Search doctors</a>
     <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
 </div>
 <div class="tableContainer">
