@@ -24,7 +24,7 @@ public class Doctor {
 
     @NotNull
     @Size(min=3, max = 50)
-    String lastName;
+    private String lastName;
 
     @Enumerated(EnumType.STRING)
     @Null

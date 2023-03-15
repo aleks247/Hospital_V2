@@ -11,6 +11,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Patient menu</title>
+    <script>
+        $(document).ready(function() {
+            $('th').each(function(col) {
+                $(this).click(function() {
+                    if ($(this).hasClass('asc')) {
+                        $('table').find('tbody > tr').sort(function(a, b) {
+                            return $('td:eq(' + col + ')', b).text().localeCompare($('td:eq(' + col + ')', a).text());
+                        }).appendTo('table');
+                        $(this).removeClass('asc').addClass('desc');
+                    } else {
+                        $('table').find('tbody > tr').sort(function(a, b) {
+                            return $('td:eq(' + col + ')', a).text().localeCompare($('td:eq(' + col + ')', b).text());
+                        }).appendTo('table');
+                        $(this).removeClass('desc').addClass('asc');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="navbarCustom">
@@ -23,10 +42,11 @@
     <table class = "table table-hover">
         <thead>
         <tr>
-            <th scope="col">id</th>
-            <th scope="col">Date&Time</th>
-            <th scope="col">Doctor ID</th>
-            <th scope="col">Review type</th>
+            <th scope="col" class="asc">id</th>
+            <th scope="col" class="asc">Date&Time</th>
+            <th scope="col" class="asc">Doctor ID</th>
+<!--            <th scope="col">Doctor Name</th>-->
+            <th scope="col" class="asc">Review type</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -35,6 +55,7 @@
             <td th:text = "${appointment.id}"></td>
             <td th:text = "${appointment.getDateTime2()}"></td>
             <td th:text = "${appointment.doctor.id}"></td>
+<!--            <td th:text = "${appointment.doctor.firstName} + ' ' + ${appointment.doctor.lastName}"></td>-->
             <td th:text = "${appointment.KindOfReview}"></td>
             <td>
                 <a th:href="@{/patients/edit/{appointmentId}(appointmentId=${appointment.id})}"  id="updateBtn" class="btn btn-success">Update</a>

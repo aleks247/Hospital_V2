@@ -34,7 +34,7 @@
 <body>
 <div class="navbarCustom">
     <a class="active" id="Title"><b>Welcome back, Doctor [[${#request.userPrincipal.principal.username}]]</b></a>
-    <a id="links" href="/doctors/menu">Menu</a>
+    <a id="links" href="/doctors/menu" style="text-decoration:none;">Menu</a>
     <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
 </div>
 <form th:action="@{/doctors/searchDoctors}" method="post">
