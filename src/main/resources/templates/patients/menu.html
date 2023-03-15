@@ -15,7 +15,7 @@
 <body>
     <div class="navbarCustom">
         <a class="active" id="Title"><b>Welcome back, Patient [[${#request.userPrincipal.principal.username}]]</b></a>
-        <a id="links" href="/patients/create">Create appointment</a>
+        <a id="links" href="/patients/create" style="text-decoration:none;">Create appointment</a>
         <a href="#" th:href="@{/logout}" id="logout"><i class="fa fa-sign-out" style="color: white;"> Log Out</i></a>
         </div>
 <div class="tableContainer">

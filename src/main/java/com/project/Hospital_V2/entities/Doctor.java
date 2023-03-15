@@ -1,8 +1,6 @@
 package com.project.Hospital_V2.entities;
 
 import com.project.Hospital_V2.enums.Specialties;
-import net.bytebuddy.implementation.bind.annotation.Default;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,20 +18,14 @@ public class Doctor {
     @Size(min=5, max=20)
     private String username;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @NotNull
     @Size(min=3, max = 50)
     private String firstName;
+
     @NotNull
     @Size(min=3, max = 50)
     String lastName;
+
     @Enumerated(EnumType.STRING)
     @Null
     private Specialties speciality;
@@ -54,6 +46,15 @@ public class Doctor {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -80,3 +81,4 @@ public class Doctor {
         this.speciality = speciality;
     }
 }
+
