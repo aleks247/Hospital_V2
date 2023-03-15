@@ -1,8 +1,6 @@
 package com.project.Hospital_V2.entities;
 
 import com.project.Hospital_V2.enums.Specialties;
-import net.bytebuddy.implementation.bind.annotation.Default;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
